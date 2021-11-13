@@ -1,8 +1,20 @@
 var current_moves = 0;
+var currentTime = 0;
+var bestTime = Number.MAX_SAFE_INTEGER;
+var bestMove = Number.MAX_SAFE_INTEGER;
 function swapTiles(cell1, cell2) {
 	var temp = document.getElementById(cell1).className;
 	document.getElementById(cell1).className = document.getElementById(cell2).className;
 	document.getElementById(cell2).className = temp;
+}
+
+function startTimer() {
+	setInterval(function () {
+		currentTime++;
+		span = document.getElementById("time");
+		span.innerHTML = currentTime;
+
+	}, 1000);
 }
 
 function shuffle() {
@@ -76,6 +88,7 @@ function shuffle() {
 			blankTileCol = selectedTileCol;
 		}
 	}
+	startTimer();
 	return;
 }
 function clickTile(row, column) {
@@ -114,7 +127,14 @@ function clickTile(row, column) {
 
 	if (checkIfWon()) {
 		document.body.style.backgroundColor = "gold";
-		alert("You win!");
+		if (currentTime < bestTime) {
+			bestTime = currentTime;
+		}
+
+		if (current_moves < bestMove) {
+			bestMove = current_moves;
+		}
+		alert("You won in " + current_moves + " moves and it took " + currentTime + " seconds.\n The best time is " + bestTime + " seconds and the least number of moves is " + bestMove);
 	}
 	return;
 }
