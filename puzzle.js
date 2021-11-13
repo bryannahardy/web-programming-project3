@@ -1,7 +1,9 @@
 var current_moves = 0;
 var currentTime = 0;
+var music;
 var bestTime = Number.MAX_SAFE_INTEGER;
 var bestMove = Number.MAX_SAFE_INTEGER;
+
 function swapTiles(cell1, cell2) {
 	var temp = document.getElementById(cell1).className;
 	document.getElementById(cell1).className = document.getElementById(cell2).className;
@@ -17,7 +19,7 @@ function startTimer() {
 	}, 1000);
 }
 
-function shuffle() {
+function newGame() {
 	let blankTileRow = 4;
 	let blankTileCol = 4;
 	let selectedTileRow;
@@ -89,6 +91,8 @@ function shuffle() {
 		}
 	}
 	startTimer();
+	music = new sound('music.mp3');
+	music.play();
 	return;
 }
 function clickTile(row, column) {
@@ -139,6 +143,18 @@ function clickTile(row, column) {
 	return;
 }
 
+function sound(src) {
+	this.sound = document.createElement("audio");
+	this.sound.src = src;
+	this.sound.setAttribute("preload", "auto");
+	this.sound.setAttribute("controls", "none");
+	this.sound.style.display = "none";
+	document.body.appendChild(this.sound);
+	this.play = function () {
+		this.sound.play();
+	}
+}
+
 function increment_moves() {
 
 	if (moves) {
@@ -154,7 +170,8 @@ function checkIfWon() {
 			let cellTest = "cell" + rowTest + colTest;
 			let tileTest = "tile" + tileCount;
 			if (tileTest === "tile16") {
-				break;
+				//Puzzle is correct as all other tiles are in the right spot
+				return true;
 			}
 			if (!(document.getElementById(cellTest).classList.contains(tileTest))) {
 				return false;
@@ -162,5 +179,4 @@ function checkIfWon() {
 			tileCount++;
 		}
 	}
-	return true;
 }
