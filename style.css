@@ -1,8 +1,8 @@
-BODY { 
+body { 
 background: #AAAAAA;
 }
 
-.tile1, .tile2, .tile3, .tile4, .tile5, .tile6, .tile7, .tile8, .tile9, .tile10, .tile11, .tile12, .tile13, .tile14, .tile15, .tile16 {
+.tile1, .tile2, .tile3, .tile4, .tile5, .tile6, .tile7, .tile8, .tile9, .tile10, .tile11, .tile12, .tile13, .tile14, .tile15, .blankSpace {
   display: table-cell;
   width: 90px;
   height: 90px;
@@ -13,81 +13,51 @@ background: #AAAAAA;
 }
 
 .tile1 {
-	width: 90px;
-	height: 90px;
 	background-position: 0px 0px;
 }
 .tile2 {
-	width: 90px;
-	height: 90px;
 	background-position: -90px 0px;
 }
 .tile3 {
-	width: 90px;
-	height: 90px;
 	background-position: -180px 0px;
 }
 .tile4 {
-	width: 90px;
-	height: 90px;
 	background-position: -265px 0px;
 }
 .tile5 {
-	width: 90px;
-	height: 90px;
 	background-position: 0px -95px;
 }
 .tile6 {
-	width: 90px;
-	height: 90px;
 	background-position: -90px -95px;
 }
 .tile7 {
-	width: 90px;
-	height: 90px;
 	background-position: -180px -95px;
 }
 .tile8 {
-	width: 90px;
-	height: 90px;
 	background-position: -265px -95px;
 }
 .tile9{
-	width: 90px;
-	height: 90px;
 	background-position: 0px -180px;
 }
 .tile10{
-	width: 90px;
-	height: 90px;
 	background-position: -90px -180px;
 }
 .tile11{
-	width: 90px;
-	height: 90px;
 	background-position: -180px -180px;
 }
 .tile12{
-	width: 90px;
-	height: 90px;
 	background-position: -265px -180px;	
 }
 .tile13{
-	width: 90px;
-	height: 90px;
 	background-position: 0px -270px;
 }
 .tile14{
-	width: 90px;
-	height: 90px;
 	background-position: -90px -270px;
 }
 .tile15{
-	width: 90px;
-	height: 90px;
 	background-position: -180px -270px;
 }
-.tile16 {
+.blankSpace {
 	background: white; 
 	cursor: default;
 }
