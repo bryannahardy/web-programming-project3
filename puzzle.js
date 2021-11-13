@@ -5,16 +5,6 @@ function swapTiles(cell1, cell2) {
 	document.getElementById(cell2).className = temp;
 }
 
-// function shuffle() {
-// 	for (var row = 1; row <= 4; row++) {
-// 		for (var column = 1; column <= 4; column++) {
-// 			var row2 = Math.floor(Math.random() * 4 + 1);
-// 			var column2 = Math.floor(Math.random() * 4 + 1);
-// 			swapTiles("cell" + row + column, "cell" + row2 + column2);
-// 		}
-// 	}
-// }
-
 function shuffle() {
 	let blankTileRow = 4;
 	let blankTileCol = 4;
