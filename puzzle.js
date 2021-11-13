@@ -5,16 +5,89 @@ function swapTiles(cell1, cell2) {
 	document.getElementById(cell2).className = temp;
 }
 
+// function shuffle() {
+// 	for (var row = 1; row <= 4; row++) {
+// 		for (var column = 1; column <= 4; column++) {
+// 			var row2 = Math.floor(Math.random() * 4 + 1);
+// 			var column2 = Math.floor(Math.random() * 4 + 1);
+// 			swapTiles("cell" + row + column, "cell" + row2 + column2);
+// 		}
+// 	}
+// }
+
 function shuffle() {
-	for (var row = 1; row <= 4; row++) {
-		for (var column = 1; column <= 4; column++) {
-			var row2 = Math.floor(Math.random() * 4 + 1);
-			var column2 = Math.floor(Math.random() * 4 + 1);
-			swapTiles("cell" + row + column, "cell" + row2 + column2);
+	let blankTileRow = 4;
+	let blankTileCol = 4;
+	let selectedTileRow;
+	let selectedTileCol;
+	for (let i = 0; i < 1000; i++) {
+		if (Math.floor(Math.random() * 2) == 0) {
+			if (blankTileRow == 1) {
+				if (Math.floor(Math.random() * 2) == 0) {
+					selectedTileRow = 1;
+				} else {
+					selectedTileRow = 2;
+				}
+			} else if (blankTileRow == 2) {
+				if (Math.floor(Math.random() * 2) == 0) {
+					selectedTileRow = 1;
+				} else {
+					selectedTileRow = 3;
+				}
+			} else if (blankTileRow == 3) {
+				if (Math.floor(Math.random() * 2) == 0) {
+					selectedTileRow = 2;
+				} else {
+					selectedTileRow = 4;
+				}
+			} else if (blankTileRow == 4) {
+				if (Math.floor(Math.random() * 2) == 0) {
+					selectedTileRow = 3;
+				} else {
+					selectedTileRow = 4;
+				}
+			}
+			selectedTileCol = blankTileCol;
+		} else {
+
+			if (blankTileCol == 1) {
+				if (Math.floor(Math.random() * 2) == 0) {
+					selectedTileCol = 1;
+				} else {
+					selectedTileCol = 2;
+				}
+			} else if (blankTileCol == 2) {
+				if (Math.floor(Math.random() * 2) == 0) {
+					selectedTileCol = 1;
+				} else {
+					selectedTileCol = 3;
+				}
+			} else if (blankTileCol == 3) {
+				if (Math.floor(Math.random() * 2) == 0) {
+					selectedTileCol = 2;
+				} else {
+					selectedTileCol = 4;
+				}
+			} else if (blankTileCol == 4) {
+				if (Math.floor(Math.random() * 2) == 0) {
+					selectedTileCol = 3;
+				} else {
+					selectedTileCol = 4;
+				}
+
+			}
+			selectedTileRow = blankTileRow;
+		}
+		if (!((blankTileRow == selectedTileRow) && (blankTileCol == selectedTileCol))) {
+			let swap1 = "cell" + blankTileRow + blankTileCol;
+			let swap2 = "cell" + selectedTileRow + selectedTileCol;
+			swapTiles(swap1, swap2);
+			blankTileRow = selectedTileRow;
+			blankTileCol = selectedTileCol;
 		}
 	}
+	return;
 }
-
 function clickTile(row, column) {
 
 	var cell = document.getElementById("cell" + row + column);
